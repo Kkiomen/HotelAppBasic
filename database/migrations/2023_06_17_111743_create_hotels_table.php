@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('phone')->nullable();
             $table->text('email')->nullable();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -2,6 +2,8 @@
 
 namespace App\Enums;
 
+use Illuminate\Support\Facades\Lang;
+
 enum AccomodationType: string
 {
     case ROOM = 'room';
@@ -18,6 +20,17 @@ enum AccomodationType: string
             self::PLACE->value,
             self::HOUSE->value,
             self::OTHER->value
+        ];
+    }
+
+    public static function toSelect(): array
+    {
+        return [
+            self::ROOM->value => Lang::get('room.accommodation_type_room'),
+            self::TENT->value => Lang::get('room.accommodation_type_tent'),
+            self::PLACE->value => Lang::get('room.accommodation_type_place'),
+            self::HOUSE->value => Lang::get('room.accommodation_type_house'),
+            self::OTHER->value => Lang::get('form.other')
         ];
     }
 }

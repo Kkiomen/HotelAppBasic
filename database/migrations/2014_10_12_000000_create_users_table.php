@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->text('phone')->nullable();
+            $table->bigInteger('active_hotel')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

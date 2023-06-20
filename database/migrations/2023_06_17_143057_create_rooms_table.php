@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('hotel_id')->unsigned();
-            $table->string('name');
+            $table->text('name');
             $table->integer('number_place')->nullable();
             $table->integer('max_person')->nullable();
             $table->integer('number_bed')->nullable();
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->date('available_date_from')->nullable();
             $table->date('available_date_to')->nullable();
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

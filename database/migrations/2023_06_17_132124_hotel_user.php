@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('hotel_user', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->bigInteger('hotel_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 
