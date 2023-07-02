@@ -2,6 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Enums\RolesType;
+use App\Models\Reservation;
+use App\Models\ReservationUser;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +20,13 @@ class ReservationUserFactory extends Factory
      */
     public function definition(): array
     {
+        $user = User::inRandomOrder()->where('roles', RolesType::GUEST->value)->first();
+        $reservation = Reservation::inRandomOrder()->first();
+
         return [
-            //
+            'user_id' => $user->id,
+            'reservation_id' => $reservation->id,
+            'main_guest' => ReservationUser::where('reservation_id', $reservation->id)->where('user_id', $user->id)->count() === 0,
         ];
     }
 }

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('hotel_id');
+            $table->text('name')->nullable();
             $table->dateTime('check_in')->nullable();
             $table->dateTime('check_out')->nullable();
             $table->text('description')->nullable();
@@ -27,6 +28,9 @@ return new class extends Migration
             $table->boolean('can_use_wallet')->default(false);
             $table->float('wallet_balance')->default(0);
 
+            $table->boolean('can_pay_by_wallet')->default(false);
+
+
             // cost sharing. Does each person have their own wallet and pay for services or is there a shared
             $table->boolean('cost_breakdown')->default(false);
 
@@ -39,6 +43,7 @@ return new class extends Migration
             // From what amount to block the purchase of further services
             $table->float('wallet_hard_limit')->default(0);
 
+            $table->boolean('is_active')->default(false);
 
             $table->integer('status')->default(0);
             $table->text('name_reservation_person')->nullable();

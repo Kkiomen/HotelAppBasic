@@ -27,6 +27,6 @@ class Room extends Model
 
     protected static function booted()
     {
-        static::addGlobalScope(new RoomScope());
+        //static::addGlobalScope(new RoomScope());
     }
 }

@@ -22,7 +22,7 @@ class RoomFactory extends Factory
         $hotel = Hotel::inRandomOrder()->first();
         return [
             'hotel_id' => $hotel->id,
-            'name' => fake()->realText('50'),
+            'name' => rand(100,800),
             'number_place' => fake()->numberBetween(100,300),
             'max_person' => rand(1,6),
             'number_bed' => rand(1,5),

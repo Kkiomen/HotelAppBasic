@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('reservation_room', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('hotel_id');
             $table->unsignedBigInteger('reservation_id');
             $table->unsignedBigInteger('room_id');
-            $table->softDeletes();
-            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
-            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
+            $table->text('room_number_place')->nullable();
+//            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
+//            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservation_rooms');
+        Schema::dropIfExists('reservation_room');
     }
 };

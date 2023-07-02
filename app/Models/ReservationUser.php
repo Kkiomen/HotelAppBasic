@@ -11,6 +11,6 @@ class ReservationUser extends Model
     protected $table = 'reservation_user';
 
     protected $fillable = [
-        'reservation_id', 'user_id', 'balance_wallet', 'wallet_limit', 'wallet_hard_limit'
+        'reservation_id', 'user_id', 'balance_wallet', 'wallet_limit', 'wallet_hard_limit', 'main_guest'
     ];
 }

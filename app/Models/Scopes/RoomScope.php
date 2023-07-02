@@ -14,8 +14,6 @@ class RoomScope implements Scope
      */
     public function apply(Builder $builder, Model $model): void
     {
-        $builder->where('rooms.hotel_id', Auth::user()->active_hotel)
-            ->leftJoin('hotel_user', 'hotel_user.hotel_id', 'rooms.hotel_id')
-            ->where('hotel_user.user_id', '=', Auth::user()->id);
+        $builder->where('hotel_id', Auth::user()->active_hotel);
     }
 }

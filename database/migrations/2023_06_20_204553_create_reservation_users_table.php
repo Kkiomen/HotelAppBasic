@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('reservation_id');
             $table->unsignedBigInteger('user_id');
-            $table->float('balance_wallet');
+            $table->float('balance_wallet')->default(0);
             $table->float('wallet_limit')->default(0);
             $table->float('wallet_hard_limit')->default(0);
-            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->boolean('main_guest')->default(false);
+//            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
+//            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservation_users');
+        Schema::dropIfExists('reservation_user');
     }
 };

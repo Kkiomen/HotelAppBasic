@@ -22,6 +22,7 @@
         "livewire/livewire": "^2.12",
         "openai-php/client": "^0.4.2",
         "ryangjchandler/blade-tabler-icons": "^2.0",
+        "saade/filament-fullcalendar": "^1.8",
         "tymon/jwt-auth": "^2.0"
     },
     "require-dev": {

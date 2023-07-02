@@ -8,11 +8,21 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ReservationRoom extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $table = 'reservation_room';
 
     protected $fillable = [
-      'reservation_id', 'room_id'
+      'reservation_id', 'room_id', 'room_number_place', 'hotel_id'
     ];
+
+    public function reservation()
+    {
+        return $this->belongsTo(Reservation::class);
+    }
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }

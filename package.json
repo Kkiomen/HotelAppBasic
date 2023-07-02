@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "@awcodes/alpine-floating-ui": "^3.5.0",
-        "@ryangjchandler/alpine-clipboard": "^2.2.0"
+        "@ryangjchandler/alpine-clipboard": "^2.2.0",
+        "apexcharts": "^3.41.0"
     }
 }
